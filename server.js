@@ -1,4 +1,4 @@
-// Require
+// Dependencies
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -25,9 +25,11 @@ mongoose.connection.on('connected', () => {
 // Controllers
 const pagesCtrl = require('./controllers/pages')
 const authCtrl = require('./controllers/auth')
-const vipCtrl = require('./controllers/vip')
+const regCtrl = require('./controllers/registered')
+const workoutCtrl = require('./controllers/workouts')
 
 // Middleware
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false}))
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session({
@@ -53,7 +55,15 @@ app.post('/auth/sign-up', authCtrl.addUser)
 app.get('/auth/sign-in', authCtrl.signInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.get('/auth/sign-out', authCtrl.signOut)
-app.get('/vip-lounge', isSignedIn, vipCtrl.welcome)
+app.get('/registered/plans', isSignedIn, regCtrl.welcome)
+
+// User must be signed in to access below routes
+app.use(isSignedIn);
+
+// app.get('/users/:userId/home-page', workoutCtrl.userIndex)
+
+
+
 
 
 app.listen(port, () => {
