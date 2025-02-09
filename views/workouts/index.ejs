@@ -1,0 +1,13 @@
+<%- include('../partials/head') %>
+
+    <h1>Workout Plans</h1>
+
+    <div class="container">        
+        <% if (user) { %>
+            <h1>Your created list</h1>
+            <button><a class="nav-link" href="/workout-plans/<%= user._id %>/new-plan">Add a Workout plan</a></button>   
+        <% } %>    
+    </div>
+
+
+<%- include('../partials/footer') %>

@@ -5,7 +5,7 @@ const workoutSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    level: {
+    difficultyLevel: {
         type: String,
         required: true,
     },

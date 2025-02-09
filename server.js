@@ -25,7 +25,6 @@ mongoose.connection.on('connected', () => {
 // Controllers
 const pagesCtrl = require('./controllers/pages')
 const authCtrl = require('./controllers/auth')
-const regCtrl = require('./controllers/registered')
 const workoutCtrl = require('./controllers/workouts')
 
 // Middleware
@@ -48,17 +47,28 @@ app.use(session({
 }))
 app.use(passUserToView)
 
-// Route handlers
+// Route handlers for Viewing workout plan index page
+app.get('/workout-plans', workoutCtrl.welcome)
+
+// Route handlers for authentication
 app.get('/', pagesCtrl.home)
 app.get('/auth/sign-up', authCtrl.signUp)
 app.post('/auth/sign-up', authCtrl.addUser)
 app.get('/auth/sign-in', authCtrl.signInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.get('/auth/sign-out', authCtrl.signOut)
-app.get('/registered/plans', isSignedIn, regCtrl.welcome)
+
 
 // User must be signed in to access below routes
 app.use(isSignedIn);
+
+// Different page render for registered user for Viewing workout plan index page
+app.get('/workout-plans/:userId', workoutCtrl.welcomeUser)
+
+// Route handlers for Registered users performing CRUD
+app.get('/workout-plans/:userId/new-plan', workoutCtrl.newPlan)
+app.post('/workout-plans/:userId', workoutCtrl.postPlan)
+
 
 // app.get('/users/:userId/home-page', workoutCtrl.userIndex)
 
