@@ -1,5 +1,3 @@
-const express = require('express');
-
 const User = require('../models/user.js')
 
 const welcome = (req, res) => {
@@ -11,7 +9,9 @@ const welcomeUser = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
         res.render('workouts/index.ejs',
-            {title: 'Home page'}
+            {title: 'Home page',
+            workout: currentUser.workout
+            }
         )
         console.log(currentUser)
     } catch (error) {
