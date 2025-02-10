@@ -9,8 +9,9 @@ const welcome = (req, res) => {
 const welcomeUser = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
+        const user = currentUser.username
         res.render('workouts/index.ejs',
-            {title: 'Home page',
+            {title: `${user}'s Workout Plans`,
             workouts: currentUser.workouts
             }
         )
@@ -47,8 +48,21 @@ const showPlan = async (req, res) => {
         const currentUser = await User.findById(req.params.userId)
         const workout = currentUser.workouts.id(req.params.workoutId)
         res.render('workouts/show.ejs', {
-            title: `Your plan`,
-            workouts: currentUser.workouts,
+            title: `Your ${workout.name} plan`,
+            workout,
+        })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
+
+const editPlan = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const workout = currentUser.workouts.id(req.params.workoutId)
+        res.render('workouts/edit.ejs', {
+            title: `Editing your ${workout.name} plan`,
             workout,
         })
     } catch (error) {
@@ -63,5 +77,6 @@ module.exports = {
     welcomeUser,
     newPlan,
     postPlan,
-    showPlan
+    showPlan,
+    editPlan
 }

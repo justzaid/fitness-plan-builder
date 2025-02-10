@@ -6,13 +6,13 @@
     <form action="/auth/sign-up" method="POST">
         
         <label for="username">Username: </label>
-        <input type="username" name="username">
+        <input type="username" name="username" required="true">
         
         <label for="password">Password: </label>
-        <input type="password" name="password">
+        <input type="password" name="password" required="true">
         
         <label for="confirmPassword">Confirm Password: </label>
-        <input type="password" name="confirmPassword">
+        <input type="password" name="confirmPassword" required="true">
         
         <button type="submit" class="btn btn-primary">Sign up</button>
         

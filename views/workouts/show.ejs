@@ -1,13 +1,13 @@
 <%- include('../partials/head') %>
 
 <div class="title-header">    
-    <h1><%= workout.name %> Plan</h1>
+    <h1><%= title %></h1>
 </div>
 
 <% if (user) { %>
     <div class="top-card-container">
         <h1>Your created list</h1>
-        <a class="show-card-btn btn btn-primary" href="#">Edit your Plan</a>
+        <a class="show-card-btn btn btn-primary" href="/workout-plans/<%= user._id %>/<%= workout._id %>/edit">Edit your Plan</a>
         <a class="show-card-btn btn-danger" href="#">Delete your Plan</a>
   </div>
 <% } %>
