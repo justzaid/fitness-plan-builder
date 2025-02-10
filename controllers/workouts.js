@@ -71,6 +71,18 @@ const editPlan = async (req, res) => {
     }
 }
 
+const deletePlan = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const workout = currentUser.workouts.id(req.params.workoutId).deleteOne()
+        await currentUser.save()
+        res.redirect(`/workout-plans/${currentUser._id}`)
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
+
 // Exports
 module.exports = {
     welcome,
@@ -78,5 +90,6 @@ module.exports = {
     newPlan,
     postPlan,
     showPlan,
-    editPlan
+    editPlan,
+    deletePlan,
 }

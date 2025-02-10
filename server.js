@@ -70,6 +70,7 @@ app.get('/workout-plans/:userId/new-plan', workoutCtrl.newPlan)
 app.post('/workout-plans/:userId', workoutCtrl.postPlan)
 app.get('/workout-plans/:userId/:workoutId/view', workoutCtrl.showPlan)
 app.get('/workout-plans/:userId/:workoutId/edit', workoutCtrl.editPlan)
+app.get('/workout-plans/:userId/:workoutId/delete', workoutCtrl.deletePlan)
 
 
 // app.get('/users/:userId/home-page', workoutCtrl.userIndex)
