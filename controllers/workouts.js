@@ -1,10 +1,5 @@
 const User = require('../models/user.js')
 
-// General welcome page for both users and guests 
-const welcome = (req, res) => {
-    res.render('workouts/index.ejs')
-}
-
 // Welcome page for registered users
 const welcomeUser = async (req, res) => {
     try {
@@ -72,6 +67,22 @@ const editPlan = async (req, res) => {
     }
 }
 
+// Update individual workout plan - Update
+const updatePlan = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const workout = currentUser.workouts.id(req.params.workoutId)
+        
+        workout.set(req.body)
+        await currentUser.save()
+
+        res.redirect(`/workout-plans/${currentUser.id}`)
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
+
 // Delete functionality for individual workout plans
 const deletePlan = async (req, res) => {
     try {
@@ -87,11 +98,11 @@ const deletePlan = async (req, res) => {
 
 // Exports
 module.exports = {
-    welcome,
     welcomeUser,
     newPlan,
     postPlan,
     showPlan,
     editPlan,
     deletePlan,
+    updatePlan,
 }

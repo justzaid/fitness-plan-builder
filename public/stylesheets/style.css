@@ -18,7 +18,7 @@ body {
     margin: 0;
 }
 
-.show-card-btn show-card-btn:first-child {
+.show-card-btn:first-child {
     
     margin-right: auto;
 }

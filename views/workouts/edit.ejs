@@ -2,9 +2,9 @@
 
 <div class="container">
 
-    <h1>Create new Plan</h1>
+    <h1>Edit Plan</h1>
     
-    <form action="/workout-plans/<%= user._id %>?_method=PUT" method="POST">
+    <form action="/workout-plans/<%= user._id %>/update/<%= workout._id %>?_method=PUT" method="POST">
         
         <label for="name">Plan name: </label>
         <input type="text" name="name" value="<%= workout.name %>">
@@ -27,7 +27,7 @@
         <label for="descritpion">Description: </label>
         <input type="text" name="descritpion" value="<%= workout.descritpion%>">
         
-        <button type="submit" class="btn btn-primary">Add Plan</button>
+        <button type="submit" class="btn btn-primary">Apply changes</button>
 
     </form>
 </div>

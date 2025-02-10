@@ -2,28 +2,34 @@
 
 <h1><%= title %></h1>
 
+<h3>Sign up now to view all community plans</h3>
 
-    <div class="container">
-        <div class="card-container">
-            <% CurrentUser.forEach(user => { %>
-                <li> <a href="/community/<%= user._id %>"><%= user.username %></a>
-                    <div class="card m-2" style="width: 25rem">
-                        <div class="card-body">
-                            <% user.workouts.forEach(field => { %>
-                                <h5 class="card-title"><%= field.name %></h5>
-                                <p class="card-text">Difficulty level: <%= field.difficultyLevel %></p>
-                                <p class="card-text">Time per workout: <%= field.duration %></p>
-                                <p class="card-text">Days per week: <%= field.daysPerWeek %></p>
-                                <p class="card-text">Time per workout: <%= field.timePerWorkout %></p>
-                                <p class="card-text">Equipment required: <%= field.equipmentRequired %></p>
-                                <p class="card-text">Description: <%= field.descritpion %></p>
-                            <% }) %>
+<div class="container">
+    <div class="card-container">
+        <% currentUser.forEach(user => { %>
+            <li>
+                <a href="/community/<%= user._id %>/view"><%= user.username %></a>              
+
+                <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
+                    let numRandomWorkouts = 3;
+                    let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
+                    randomWorkouts.forEach(workout => { %>
+                        <div class="card m-2" style="width: 25rem">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= workout.name %></h5>
+                                <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
+                                <p class="card-text">Time per workout: <%= workout.duration %></p>
+                                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                                <p class="card-text">Description: <%= workout.description %></p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            <% }) %>
-        </div>
+                    <% }) %>
+            </li>
+        <% }) %>
     </div>
+</div>
 
 
 <%- include('../partials/footer') %>

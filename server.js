@@ -48,36 +48,31 @@ app.use(session({
 }))
 app.use(passUserToView)
 
-// Route handlers for Viewing workout plan index page
-app.get('/workout-plans', workoutCtrl.welcome)
+// Landing
+app.get('/', pagesCtrl.home)
 
 // Route handler for community page
 app.get('/community', communityCtrl.home)
+app.get('/community/:userId/view', communityCtrl.viewUser)
 
 // Route handlers for authentication
-app.get('/', pagesCtrl.home)
 app.get('/auth/sign-up', authCtrl.signUp)
 app.post('/auth/sign-up', authCtrl.addUser)
 app.get('/auth/sign-in', authCtrl.signInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.get('/auth/sign-out', authCtrl.signOut)
 
-
 // User must be signed in to access below routes
 app.use(isSignedIn);
 
-// Different page render for registered user for Viewing workout plan index page
-app.get('/workout-plans/:userId', workoutCtrl.welcomeUser)
-
 // Route handlers for Registered users performing CRUD
-app.get('/workout-plans/:userId/new-plan', workoutCtrl.newPlan)
-app.post('/workout-plans/:userId', workoutCtrl.postPlan)
-app.get('/workout-plans/:userId/:workoutId/view', workoutCtrl.showPlan)
-app.get('/workout-plans/:userId/:workoutId/edit', workoutCtrl.editPlan)
-app.get('/workout-plans/:userId/:workoutId/delete', workoutCtrl.deletePlan)
-
-
-
+app.get('/workout-plans/:userId', workoutCtrl.welcomeUser) // User personal plan page
+app.get('/workout-plans/:userId/new-plan', workoutCtrl.newPlan) // User new plan page
+app.post('/workout-plans/:userId', workoutCtrl.postPlan) // User post plan
+app.get('/workout-plans/:userId/view/:workoutId', workoutCtrl.showPlan) // User view individual plan
+app.get('/workout-plans/:userId/edit/:workoutId', workoutCtrl.editPlan) // User edit plan
+app.post('/workout-plans/:userId/update/:workoutId', workoutCtrl.updatePlan) // User update plan
+app.get('/workout-plans/:userId/delete/:workoutId', workoutCtrl.deletePlan) // User delete plan
 
 
 
