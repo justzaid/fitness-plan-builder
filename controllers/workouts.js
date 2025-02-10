@@ -1,16 +1,17 @@
 const User = require('../models/user.js')
 
+// General welcome page for both users and guests 
 const welcome = (req, res) => {
-    // res.send(`Welcome to the party ${req.session.user.username}`)
     res.render('workouts/index.ejs')
 }
 
+// Welcome page for registered users
 const welcomeUser = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
         res.render('workouts/index.ejs',
             {title: 'Home page',
-            workout: currentUser.workout
+            workouts: currentUser.workouts
             }
         )
         console.log(currentUser)
@@ -20,15 +21,18 @@ const welcomeUser = async (req, res) => {
     }
 }
 
+// Create a New workout plan - New Page
 const newPlan = (req, res) => {
    res.render('workouts/new.ejs', {
     title: 'Add new workout plan'
    })
 }
 
+// Post the new workout plan - Form
 const postPlan = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
+        currentUser.workouts.push(req.body)
         await currentUser.save()
         res.redirect(`/workout-plans/${currentUser._id}`)
     } catch (error) {
@@ -37,10 +41,27 @@ const postPlan = async (req, res) => {
     }
 }
 
+// View individual workout plan - Show page
+const showPlan = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const workout = currentUser.workouts.id(req.params.workoutId)
+        res.render('workouts/show.ejs', {
+            title: `Your plan`,
+            workouts: currentUser.workouts,
+            workout,
+        })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
 
+// Exports
 module.exports = {
     welcome,
     welcomeUser,
     newPlan,
     postPlan,
+    showPlan
 }

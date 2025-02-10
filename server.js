@@ -68,6 +68,7 @@ app.get('/workout-plans/:userId', workoutCtrl.welcomeUser)
 // Route handlers for Registered users performing CRUD
 app.get('/workout-plans/:userId/new-plan', workoutCtrl.newPlan)
 app.post('/workout-plans/:userId', workoutCtrl.postPlan)
+app.get('/workout-plans/:userId/:workoutId/view', workoutCtrl.showPlan)
 
 
 // app.get('/users/:userId/home-page', workoutCtrl.userIndex)

@@ -15,8 +15,12 @@ body {
 }
 
 .top-card-container {
-    display: flex;
-    justify-content: space-around;
+    margin: 0;
+}
+
+.show-card-btn show-card-btn:first-child {
+    
+    margin-right: auto;
 }
 
 .card-container {

@@ -13,23 +13,25 @@
 
 <div class="container">
     <div class="card-container">
-                <% workout.forEach(element => { %>
+                <% workouts.forEach(workout => { %>
                         <div class="card m-2" style="width: 25rem">
                             <div class="card-body">
-                                <h5 class="card-title"><%= element.name %></h5>
+                                <h5 class="card-title"><%= workout.name %></h5>
                                 <h6 class="card-subtitle mb-2 text-muted">
-                                    <%= element.difficultyLevel %>
+                                    <%= workout.difficultyLevel %>
                                 </h6>
-                                <p class="card-text">Days per week: <%= element.daysPerWeek %></p>
-                                <p class="card-text">Time per workout: <%= element.timePerWorkout %></p>
-                                <p class="card-text">Equipment required: <%= element.equipmentRequired %></p>
-                                <p class="card-text">Description: <%= element.descritpion %></p>                              
-                                <a href="#">Edit Plan</a>
-                                <a href="#" class="card-link">View Plan</a>
+                                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                                <p class="card-text">Description: <%= workout.descritpion %></p>                              
+                                <a href="/workout-plans/<%= user._id %>/<%= workout._id %>/view">View Workout</a>
         
                             </div>
                         </div>
                 <% }) %>
             </div>
         </div>
+
+
+
 <%- include('../partials/footer') %>
