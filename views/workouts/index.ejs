@@ -1,22 +1,35 @@
 <%- include('../partials/head') %>
 
+<div class="title-header">    
     <h1>Workout Plans</h1>
+</div>
 
-    <div class="container">        
-        <% if (user) { %>
-            <div><h1>Your created list</h1></div>
-            <div><button><a class="nav-link" href="/workout-plans/<%= user._id %>/new-plan">Add a Workout plan</a></button></div>  
-        <% } %>    
+<% if (user) { %>
+    <div class="top-card-container">
+        <h1>Your created list</h1>
+        <button><a class="nav-link" href="/workout-plans/<%= user._id %>/new-plan">Add a Workout plan</a></button>
     </div>
+<% } %>
 
-    <% workout.forEach(element => { %>
-    <li>
-     <%= element.name %>
-     <%= element.difficultyLevel %>
-     <%= element.daysPerWeek %>
-     <%= element.timePerWorkout %>
-     <%= element.equipmentRequired %>
-     <%= element.descritpion %>
-    <% }) %>
-    </li>
+<div class="container">
+    <div class="card-container">
+                <% workout.forEach(element => { %>
+                        <div class="card m-2" style="width: 25rem">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= element.name %></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <%= element.difficultyLevel %>
+                                </h6>
+                                <p class="card-text">Days per week: <%= element.daysPerWeek %></p>
+                                <p class="card-text">Time per workout: <%= element.timePerWorkout %></p>
+                                <p class="card-text">Equipment required: <%= element.equipmentRequired %></p>
+                                <p class="card-text">Description: <%= element.descritpion %></p>                              
+                                <a href="#">Edit Plan</a>
+                                <a href="#" class="card-link">View Plan</a>
+        
+                            </div>
+                        </div>
+                <% }) %>
+            </div>
+        </div>
 <%- include('../partials/footer') %>
