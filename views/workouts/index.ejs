@@ -13,24 +13,25 @@
 
 <div class="container">
     <div class="card-container">
-                <% workouts.forEach(workout => { %>
-                        <div class="card m-2" style="width: 25rem">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= workout.name %></h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    <%= workout.difficultyLevel %>
-                                </h6>
-                                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                                <p class="card-text">Description: <%= workout.descritpion %></p>                              
-                                <a href="/workout-plans/<%= user._id %>/<%= workout._id %>/view">View Workout</a>
-        
-                            </div>
-                        </div>
-                <% }) %>
-            </div>
-        </div>
+        <% workouts.forEach(workout => { %>
+                <div class="card m-2" style="width: 25rem">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= workout.name %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= workout.difficultyLevel %>
+                        </h6>
+                        <p class="card-text">Difficulty level: <%= workout.daysPerWeek %></p>
+                        <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                        <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                        <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                        <p class="card-text">Description: <%= workout.descritpion %></p>                              
+                        <a href="/workout-plans/<%= user._id %>/<%= workout._id %>/view">View Workout</a>
+
+                    </div>
+                </div>
+        <% }) %>
+    </div>
+</div>
 
 
 

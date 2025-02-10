@@ -26,6 +26,7 @@ mongoose.connection.on('connected', () => {
 const pagesCtrl = require('./controllers/pages')
 const authCtrl = require('./controllers/auth')
 const workoutCtrl = require('./controllers/workouts')
+const communityCtrl = require('./controllers/community')
 
 // Middleware
 app.use(morgan('dev'));
@@ -50,6 +51,9 @@ app.use(passUserToView)
 // Route handlers for Viewing workout plan index page
 app.get('/workout-plans', workoutCtrl.welcome)
 
+// Route handler for community page
+app.get('/community', communityCtrl.home)
+
 // Route handlers for authentication
 app.get('/', pagesCtrl.home)
 app.get('/auth/sign-up', authCtrl.signUp)
@@ -73,7 +77,6 @@ app.get('/workout-plans/:userId/:workoutId/edit', workoutCtrl.editPlan)
 app.get('/workout-plans/:userId/:workoutId/delete', workoutCtrl.deletePlan)
 
 
-// app.get('/users/:userId/home-page', workoutCtrl.userIndex)
 
 
 

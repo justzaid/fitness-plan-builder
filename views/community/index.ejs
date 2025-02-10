@@ -1,0 +1,29 @@
+<%- include('../partials/head') %>
+
+<h1><%= title %></h1>
+
+
+    <div class="container">
+        <div class="card-container">
+            <% CurrentUser.forEach(user => { %>
+                <li> <a href="/community/<%= user._id %>"><%= user.username %></a>
+                    <div class="card m-2" style="width: 25rem">
+                        <div class="card-body">
+                            <% user.workouts.forEach(field => { %>
+                                <h5 class="card-title"><%= field.name %></h5>
+                                <p class="card-text">Difficulty level: <%= field.difficultyLevel %></p>
+                                <p class="card-text">Time per workout: <%= field.duration %></p>
+                                <p class="card-text">Days per week: <%= field.daysPerWeek %></p>
+                                <p class="card-text">Time per workout: <%= field.timePerWorkout %></p>
+                                <p class="card-text">Equipment required: <%= field.equipmentRequired %></p>
+                                <p class="card-text">Description: <%= field.descritpion %></p>
+                            <% }) %>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        </div>
+    </div>
+
+
+<%- include('../partials/footer') %>

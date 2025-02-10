@@ -57,6 +57,7 @@ const showPlan = async (req, res) => {
     }
 }
 
+// Edit individual workout plan - Edit page
 const editPlan = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
@@ -71,10 +72,11 @@ const editPlan = async (req, res) => {
     }
 }
 
+// Delete functionality for individual workout plans
 const deletePlan = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
-        const workout = currentUser.workouts.id(req.params.workoutId).deleteOne()
+        currentUser.workouts.id(req.params.workoutId).deleteOne()
         await currentUser.save()
         res.redirect(`/workout-plans/${currentUser._id}`)
     } catch (error) {
