@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+
+<h1><%= title %></h1>
+
+
+<div class="container">
+    <div class="card-container">
+        <% workout.forEach(element => { %>
+                <div class="card m-2" style="width: 25rem">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= element.name %></h5>
+                        <p class="card-text">Difficulty level: <%= element.difficultyLevel %></p>
+                        <p class="card-text">Time per duration: <%= element.duration %></p>
+                        <p class="card-text">Days per week: <%= element.daysPerWeek %></p>
+                        <p class="card-text">Time per element: <%= element.timePerWorkout %></p>
+                        <p class="card-text">Equipment required: <%= element.equipmentRequired %></p>
+                        <p class="card-text">Description: <%= element.description %></p>
+                    </div>
+                </div>
+            <% }) %>
+    </div>
+</div>
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

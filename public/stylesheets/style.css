@@ -1,0 +1,45 @@
+body {
+    margin: 0px;
+    background-color:goldenrod;
+    text-align: center;
+}
+
+.title-header {
+    margin-top: 20px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.top-card-container {
+    margin: 0;
+}
+
+.show-card-btn:first-child {
+    
+    margin-right: auto;
+}
+
+.card-container {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 40vw;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+.user-workouts{
+    display: flex;
+}

@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+
+<div class="title-header">    
+    <h1><%= title %></h1>
+</div>
+
+<% if (user) { %>
+    <div class="top-card-container">
+        <h1>Your created list</h1>
+        <a class="show-card-btn btn btn-primary" href="/workout-plans/<%= user._id %>/edit/<%= workout._id %>">Edit your Plan</a>
+        <a class="show-card-btn btn-danger" href="/workout-plans/<%= user._id %>/delete/<%= workout._id %>?_method=DELETE">Delete your Plan</a>
+  </div>
+<% } %>
+
+<div class="container">
+    <div class="card-container">
+
+        <div class="card m-2" style="width: 25rem">
+            <div class="card-body">
+                <h5 class="card-title"><%= workout.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= workout.difficultyLevel %></h6>
+                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                <p class="card-text">Description: <%= workout.descritpion %></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer') %>

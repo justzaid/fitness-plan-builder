@@ -1,0 +1,65 @@
+<%- include('../partials/head') %>
+
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Community <em>Plans</em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Join our community today to browse all of our users workout plans.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+  <div class="card-container">
+      <% currentUser.forEach(user => { %>
+          <% if(!user.workouts.length) return %>
+          <section>
+              <div class="user-info">
+                  <h4>
+                      <div class="user-avatar">
+                          <!-- Add a circular element for user avatar image or icon -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                              <circle cx="12" cy="12" r="10" fill="#ccc" />
+                              <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" fill="#fff">U</text>
+                          </svg>
+                      </div>
+
+                      <% if (isLogged) { %>
+                          <a href="/community/<%= user._id %>/view"><%= user.username %></a>
+                      <% } else { %>
+                          <%= user.username %>
+                      <% } %>
+                  </h4>
+
+                  <div class="user-workouts">
+                      <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
+                          let numRandomWorkouts = 3;
+                          let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
+                          randomWorkouts.forEach(workout => { %>
+                          <div class="card">
+                              <div class="card-body">
+                                  <h5 class="card-title"><%= workout.name %></h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">
+                                      <%= workout.difficultyLevel %>
+                                  </h6>
+                                  <p class="card-text">Time per workout: <%= workout.duration %></p>
+                                  <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                                  <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                                  <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                                  <p class="card-text">Description: <%= workout.description %></p>
+                              </div>
+                          </div>
+                      <% }) %>
+                  </div>
+              </div>
+          </section>
+      <% }) %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

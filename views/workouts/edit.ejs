@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+
+<div class="container">
+
+    <h1>Edit Plan</h1>
+    
+    <form action="/workout-plans/<%= user._id %>/update/<%= workout._id %>?_method=PUT" method="POST">
+        
+        <label for="name">Plan name: </label>
+        <input type="text" name="name" value="<%= workout.name %>">
+        
+        <label for="difficultyLevel">Difficulty Level: </label>
+        <input type="text" name="difficultyLevel" value="<%= workout.difficultyLevel %>">
+        
+        <label for="duration">Duration in weeks: </label>
+        <input type="number" name="duration" value="<%= workout.duration %>">
+        
+        <label for="daysPerWeek">Days per week: </label>
+        <input type="number" name="daysPerWeek" value="<%= workout.daysPerWeek %>">
+        
+        <label for="timePerWorkout">Time per workout: </label>
+        <input type="number" name="timePerWorkout" value="<%= workout.timePerWorkout %>">
+        
+        <label for="equipmentRequired">Equipment Required: </label>
+        <input type="text" name="equipmentRequired" value="<%= workout.equipmentRequired %>">
+        
+        <label for="descritpion">Description: </label>
+        <input type="text" name="descritpion" value="<%= workout.descritpion%>">
+        
+        <button type="submit" class="btn btn-primary">Apply changes</button>
+
+    </form>
+</div>
+
+<%- include('../partials/footer') %>
