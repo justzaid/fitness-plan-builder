@@ -9,9 +9,15 @@
         <div class="caption">
             <h6>Welcome to FitFusion</h6>
             <h2>easy with our <em>community</em></h2>
-            <div class="main-button scroll-to-section">
-                <a href="#features">Become a member</a>
-            </div>
+            <% if (!user) { %>
+                <div class="main-button scroll-to-section">
+                    <a href="/auth/sign-up">Become a member</a>
+                </div>             
+            <% } else { %>
+                <div class="main-button scroll-to-section">
+                    <a href="/community">Browse community plans</a>
+                </div>  
+            <% } %>
         </div>
     </div>
   </div>

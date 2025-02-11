@@ -1,23 +1,54 @@
 <%- include('../partials/head') %>
-<div class="container">
 
-    <h1>Create a new account</h1>
-    
-    <form action="/auth/sign-up" method="POST">
-        
-        <label for="username">Username: </label>
-        <input type="username" name="username" required="true">
-        
-        <label for="password">Password: </label>
-        <input type="password" name="password" required="true">
-        
-        <label for="confirmPassword">Confirm Password: </label>
-        <input type="password" name="confirmPassword" required="true">
-        
-        <button type="submit" class="btn btn-primary">Sign up</button>
-        
-        <p><%= msg %></p>
-    </form>
+
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Sign <em>up</em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Create an account and contribute with the community.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="contact-form col-lg-6 col-md-6 col-xs-12">
+            <form id="contact" action="/auth/sign-up" method="POST">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="username">Username: </label>
+                        <input type="username" name="username" required="true">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" required="true">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="confirmPassword">Confirm Password: </label>
+                        <input type="password" name="confirmPassword" required="true">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </div>
+                </div>
+            </form>
+            <%= msg %>
+        </div>
+    </div>
 </div>
 
 

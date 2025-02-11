@@ -1,13 +1,13 @@
-<%- include('../partials/rest') %>
+<%- include('../partials/head') %>
 
 <section class="section" id="trainers">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Expert <em>Trainers</em></h2>
-                    <img src="assets/images/line-dec.png" alt="">
-                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                    <h2>Community <em>Plans</em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Join our community today to browse all of our users workout plans.</p>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
       <% currentUser.forEach(user => { %>
         <% if(!user.workouts.length) return %>
         <section>
-          <div class="user-info"> <!-- Added user-info class here -->
+          <div class="user-info">
             <% if (isLogged) { %>
               <h4>
                 <a href="/community/<%= user._id %>/view"><%= user.username %></a>                
@@ -36,6 +36,7 @@
                 let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
                 randomWorkouts.forEach(workout => { %>
                 <div class="card">
+                    <img src="/assets/third-trainer.jpg" alt="">
                   <div class="card-body">
                     <h5 class="card-title"><%= workout.name %></h5>
                     <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
