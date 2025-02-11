@@ -321,6 +321,17 @@ header
   color: #ed563b;
 }
 
+
+.user-avatar {
+  display: inline-block;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.user-avatar svg {
+  width: 40px;
+  height: 40px;
+}
+
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
     padding-left: 12px;
