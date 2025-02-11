@@ -6,7 +6,7 @@ const home = async (req, res) => {
         const currentUser = await User.find()
         const isLogged = await User.findById(req.session.user)
         res.render('community/index.ejs', {
-            title: 'Community page',
+            title: 'Community',
             currentUser,
             isLogged,
         })

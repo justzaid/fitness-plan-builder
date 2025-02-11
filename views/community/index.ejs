@@ -1,48 +1,57 @@
-<%- include('../partials/head') %>
+<%- include('../partials/rest') %>
 
-<h1><%= title %></h1>
-
-<h3>Sign up now to view all community plans</h3>
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Expert <em>Trainers</em></h2>
+                    <img src="assets/images/line-dec.png" alt="">
+                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="container">
     <div class="card-container">
-        <% currentUser.forEach(user => { %>
-            <% if(!user.workouts.length) return %>
-            <section>
-                <% if (isLogged) { %>
-                    <h4>
-                        <a href="/community/<%= user._id %>/view"><%= user.username %></a>                
-                    </h4>
-                <% } else { %>
-                    <h4>
-                        <%= user.username %>
-                    </h4>
-                <% } %>
-
-                <div class="user-workouts">
-                    <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
-                        let numRandomWorkouts = 3;
-                        let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
-                        randomWorkouts.forEach(workout => { %>
-
-                            <div class="card m-2" style="width: 25rem">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= workout.name %></h5>
-                                    <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
-                                    <p class="card-text">Time per workout: <%= workout.duration %></p>
-                                    <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                                    <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                                    <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                                    <p class="card-text">Description: <%= workout.description %></p>
-                                </div>
-                            </div>
-                    <% }) %>
+      <% currentUser.forEach(user => { %>
+        <% if(!user.workouts.length) return %>
+        <section>
+          <div class="user-info"> <!-- Added user-info class here -->
+            <% if (isLogged) { %>
+              <h4>
+                <a href="/community/<%= user._id %>/view"><%= user.username %></a>                
+              </h4>
+            <% } else { %>
+              <h4>
+                <%= user.username %>
+              </h4>
+            <% } %>
+  
+            <div class="user-workouts">
+              <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
+                let numRandomWorkouts = 3;
+                let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
+                randomWorkouts.forEach(workout => { %>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= workout.name %></h5>
+                    <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
+                    <p class="card-text">Time per workout: <%= workout.duration %></p>
+                    <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                    <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                    <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                    <p class="card-text">Description: <%= workout.description %></p>
+                  </div>
                 </div>
-
-            </section>
-        <% }) %>
+              <% }) %>
+            </div>
+          </div>
+        </section>
+      <% }) %>
     </div>
-</div>
-
+  </div>
 
 <%- include('../partials/footer') %>
