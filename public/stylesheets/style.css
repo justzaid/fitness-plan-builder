@@ -39,3 +39,7 @@ form {
 form button {
     margin-top: 10px;
 }
+
+.user-workouts{
+    display: flex;
+}

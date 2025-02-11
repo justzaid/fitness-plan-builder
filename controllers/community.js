@@ -4,9 +4,11 @@ const User = require('../models/user')
 const home = async (req, res) => {
     try {
         const currentUser = await User.find()
+        const isLogged = await User.findById(req.session.user)
         res.render('community/index.ejs', {
             title: 'Community page',
             currentUser,
+            isLogged,
         })
     } catch (error) {
         console.log(error)
@@ -19,7 +21,7 @@ const viewUser = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
         const workout = currentUser.workouts
-        const user = currentUser.username
+        const user = await User.findById(req.session.user)
         res.render('community/show.ejs', {
             title: 'User Page',
             workout,

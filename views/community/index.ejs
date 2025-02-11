@@ -7,26 +7,39 @@
 <div class="container">
     <div class="card-container">
         <% currentUser.forEach(user => { %>
-            <li>
-                <a href="/community/<%= user._id %>/view"><%= user.username %></a>              
+            <% if(!user.workouts.length) return %>
+            <section>
+                <% if (isLogged) { %>
+                    <h4>
+                        <a href="/community/<%= user._id %>/view"><%= user.username %></a>                
+                    </h4>
+                <% } else { %>
+                    <h4>
+                        <%= user.username %>
+                    </h4>
+                <% } %>
 
-                <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
-                    let numRandomWorkouts = 3;
-                    let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
-                    randomWorkouts.forEach(workout => { %>
-                        <div class="card m-2" style="width: 25rem">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= workout.name %></h5>
-                                <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
-                                <p class="card-text">Time per workout: <%= workout.duration %></p>
-                                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                                <p class="card-text">Description: <%= workout.description %></p>
+                <div class="user-workouts">
+                    <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
+                        let numRandomWorkouts = 3;
+                        let randomWorkouts = shuffledWorkouts.slice(0, numRandomWorkouts);                    
+                        randomWorkouts.forEach(workout => { %>
+
+                            <div class="card m-2" style="width: 25rem">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= workout.name %></h5>
+                                    <p class="card-text">Difficulty level: <%= workout.difficultyLevel %></p>
+                                    <p class="card-text">Time per workout: <%= workout.duration %></p>
+                                    <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                                    <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                                    <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                                    <p class="card-text">Description: <%= workout.description %></p>
+                                </div>
                             </div>
-                        </div>
                     <% }) %>
-            </li>
+                </div>
+
+            </section>
         <% }) %>
     </div>
 </div>

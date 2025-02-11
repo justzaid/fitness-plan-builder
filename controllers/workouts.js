@@ -40,7 +40,7 @@ const postPlan = async (req, res) => {
 // View individual workout plan - Show page
 const showPlan = async (req, res) => {
     try {
-        const currentUser = await User.findById(req.params.userId)
+        const currentUser = await User.findById(req.session.user)
         const workout = currentUser.workouts.id(req.params.workoutId)
         res.render('workouts/show.ejs', {
             title: `Your ${workout.name} plan`,
