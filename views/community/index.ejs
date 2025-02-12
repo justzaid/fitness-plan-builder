@@ -23,6 +23,7 @@
       <% currentUser.forEach(user => { %>
           <% if(!user.workouts.length) return %>
           <section>
+
             <div class="user-info">
                 <div class="user-avatar">
                     <img src="/assets/features-first-icon.png" alt="User Avatar" class="avatar-image">
@@ -35,6 +36,7 @@
                     <% } %>
                 </h4>
             </div>
+
                   <div class="user-workouts">
                       <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
                           let numRandomWorkouts = 3;
