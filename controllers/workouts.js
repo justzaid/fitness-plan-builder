@@ -29,7 +29,7 @@ const postPlan = async (req, res) => {
     try {
         console.log(req.body)
         const currentUser = await User.findById(req.params.userId)
-        // currentUser.workouts.push(req.body)
+        currentUser.workouts.push(req.body)
         await currentUser.save()
         res.redirect(`/workout-plans/${currentUser._id}`)
     } catch (error) {
