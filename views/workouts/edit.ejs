@@ -34,19 +34,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <label for="duration">Duration in weeks: </label>
-                        <input type="number" name="duration"  value="<%= workout.duration%>">
+                        <input type="number" name="duration" value="<%= workout.duration%>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <label for="daysPerWeek">Days per week: </label>
-                        <input type="number" name="daysPerWeek"  value="<%= workout.daysPerWeek%>">
+                        <input type="number" name="daysPerWeek" value="<%= workout.daysPerWeek%>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <label for="timePerWorkout">Time per workout: </label>
-                        <input type="number" name="timePerWorkout"  value="<%= workout.timePerWorkout %>">
+                        <input type="number" name="timePerWorkout" value="<%= workout.timePerWorkout %>">
                     </div>
                 </div>
                 <div class="row">
@@ -58,13 +58,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <label for="description">Description: </label>
-                        <input type="text" name="description" value="<%= workout.description%>">
+                        <textarea type="text" name="description"><%= workout.description%></textarea>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <button type="submit" class="btn btn-primary">Apply changes</button>
+                        <button type="submit" cols="100" class="btn btn-primary">Apply changes</button>
                     </div>
                 </div>
             </form>

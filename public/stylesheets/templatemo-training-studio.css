@@ -201,6 +201,9 @@ body {
   background-color: #f9735b;
 }
 
+#displayDescription {
+  white-space: pre-wrap; /* Preserve line breaks and wrap text */
+}
 
 /* 
 ---------------------------------------------
@@ -960,3 +963,4 @@ responsive
     margin-left: 130px;
   }
 }
+
