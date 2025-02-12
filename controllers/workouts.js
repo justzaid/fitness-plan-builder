@@ -27,8 +27,9 @@ const newPlan = (req, res) => {
 // Post the new workout plan - Form
 const postPlan = async (req, res) => {
     try {
+        console.log(req.body)
         const currentUser = await User.findById(req.params.userId)
-        currentUser.workouts.push(req.body)
+        // currentUser.workouts.push(req.body)
         await currentUser.save()
         res.redirect(`/workout-plans/${currentUser._id}`)
     } catch (error) {
@@ -43,7 +44,7 @@ const showPlan = async (req, res) => {
         const currentUser = await User.findById(req.session.user)
         const workout = currentUser.workouts.id(req.params.workoutId)
         res.render('workouts/show.ejs', {
-            title: `Your ${workout.name}`,
+            title: `${workout.name}`,
             workout,
         })
     } catch (error) {
@@ -58,7 +59,7 @@ const editPlan = async (req, res) => {
         const currentUser = await User.findById(req.params.userId)
         const workout = currentUser.workouts.id(req.params.workoutId)
         res.render('workouts/edit.ejs', {
-            title: `Editing your ${workout.name} plan`,
+            title: `${workout.name} plan`,
             workout,
         })
     } catch (error) {

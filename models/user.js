@@ -25,7 +25,7 @@ const workoutSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    descritpion: {
+    description: {
         type: String,
         required: true,
     }

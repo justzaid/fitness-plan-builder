@@ -1,35 +1,76 @@
 <%- include('../partials/head') %>
 
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Editing your <em><%= title %></em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Edit your workout.</p>                     
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="contact-form col-lg-6 col-md-6 col-xs-12">
+            <form id="contact" action="/workout-plans/<%= user._id %>/update/<%= workout._id %>?_method=PUT" method="POST">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="name">Plan name: </label>
+                        <input type="text" name="name" value="<%= workout.name %>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="difficultyLevel">Difficulty Level: </label>
+                        <input type="text" name="difficultyLevel" value="<%= workout.difficultyLevel %>">
+                    </div>
+                </div>
 
-    <h1>Edit Plan</h1>
-    
-    <form action="/workout-plans/<%= user._id %>/update/<%= workout._id %>?_method=PUT" method="POST">
-        
-        <label for="name">Plan name: </label>
-        <input type="text" name="name" value="<%= workout.name %>">
-        
-        <label for="difficultyLevel">Difficulty Level: </label>
-        <input type="text" name="difficultyLevel" value="<%= workout.difficultyLevel %>">
-        
-        <label for="duration">Duration in weeks: </label>
-        <input type="number" name="duration" value="<%= workout.duration %>">
-        
-        <label for="daysPerWeek">Days per week: </label>
-        <input type="number" name="daysPerWeek" value="<%= workout.daysPerWeek %>">
-        
-        <label for="timePerWorkout">Time per workout: </label>
-        <input type="number" name="timePerWorkout" value="<%= workout.timePerWorkout %>">
-        
-        <label for="equipmentRequired">Equipment Required: </label>
-        <input type="text" name="equipmentRequired" value="<%= workout.equipmentRequired %>">
-        
-        <label for="descritpion">Description: </label>
-        <input type="text" name="descritpion" value="<%= workout.descritpion%>">
-        
-        <button type="submit" class="btn btn-primary">Apply changes</button>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="duration">Duration in weeks: </label>
+                        <input type="number" name="duration"  value="<%= workout.duration%>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="daysPerWeek">Days per week: </label>
+                        <input type="number" name="daysPerWeek"  value="<%= workout.daysPerWeek%>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="timePerWorkout">Time per workout: </label>
+                        <input type="number" name="timePerWorkout"  value="<%= workout.timePerWorkout %>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="equipmentRequired">Equipment Required: </label>
+                        <input type="text" name="equipmentRequired" value="<%= workout.equipmentRequired %>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="description">Description: </label>
+                        <input type="text" name="description" value="<%= workout.description%>">
+                    </div>
+                </div>
 
-    </form>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn btn-primary">Apply changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
 
 <%- include('../partials/footer') %>

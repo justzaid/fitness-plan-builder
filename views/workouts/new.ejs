@@ -1,35 +1,75 @@
 <%- include('../partials/head') %>
 
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Add your <em>plan</em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Create your new workout plan.</p>                     
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container">
-
-    <h1>Create new Plan</h1>
-    
-    <form action="/workout-plans/<%= user._id %>" method="POST">
-        
-        <label for="name">Plan name: </label>
-        <input type="text" name="name">
-        
-        <label for="difficultyLevel">Difficulty Level: </label>
-        <input type="text" name="difficultyLevel">
-        
-        <label for="duration">Duration in weeks: </label>
-        <input type="number" name="duration">
-        
-        <label for="daysPerWeek">Days per week: </label>
-        <input type="number" name="daysPerWeek">
-        
-        <label for="timePerWorkout">Time per workout: </label>
-        <input type="number" name="timePerWorkout">
-        
-        <label for="equipmentRequired">Equipment Required: </label>
-        <input type="text" name="equipmentRequired">
-        
-        <label for="descritpion">Description: </label>
-        <input type="text" name="descritpion">
-        
-        <button type="submit" class="btn btn-primary">Add Plan</button>
-
-    </form>
+    <div class="d-flex justify-content-center">
+        <div class="contact-form col-lg-6 col-md-6 col-xs-12">
+            <form id="contact" action="/workout-plans/<%= user._id %>" method="POST">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="name">Plan name: </label>
+                        <input type="text" name="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="difficultyLevel">Difficulty Level: </label>
+                        <input type="text" name="difficultyLevel">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="duration">Duration in weeks: </label>
+                        <input type="number" name="duration">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="daysPerWeek">Days per week: </label>
+                        <input type="number" name="daysPerWeek">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="timePerWorkout">Time per workout: </label>
+                        <input type="number" name="timePerWorkout">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="equipmentRequired">Equipment Required: </label>
+                        <input type="text" name="equipmentRequired">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="description">Description: </label>
+                        <input type="text" name="description">
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
+
 <%- include('../partials/footer') %>
+
