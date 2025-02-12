@@ -43,7 +43,7 @@ const showPlan = async (req, res) => {
         const currentUser = await User.findById(req.session.user)
         const workout = currentUser.workouts.id(req.params.workoutId)
         res.render('workouts/show.ejs', {
-            title: `Your ${workout.name} plan`,
+            title: `Your ${workout.name}`,
             workout,
         })
     } catch (error) {

@@ -1,33 +1,46 @@
 <%- include('../partials/head') %>
 
-<div class="title-header">    
-    <h1><%= title %></h1>
-</div>
-
-<% if (user) { %>
-    <div class="top-card-container">
-        <h1>Your created list</h1>
-        <a class="show-card-btn btn btn-primary" href="/workout-plans/<%= user._id %>/edit/<%= workout._id %>">Edit your Plan</a>
-        <a class="show-card-btn btn-danger" href="/workout-plans/<%= user._id %>/delete/<%= workout._id %>?_method=DELETE">Delete your Plan</a>
-  </div>
-<% } %>
-
-<div class="container">
-    <div class="card-container">
-
-        <div class="card m-2" style="width: 25rem">
-            <div class="card-body">
-                <h5 class="card-title"><%= workout.name %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= workout.difficultyLevel %></h6>
-                <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                <p class="card-text">Description: <%= workout.descritpion %></p>
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2><%= title %> <em>Plan</em></h2>
+                    <img src="/assets/line-dec.png" alt="">
+                    <p>Modify your workout.</p>                     
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+
+<div class="container">
+  <div class="card-container">
+            <div class="user-workouts">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= workout.name %></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <%= workout.difficultyLevel %>
+                            </h6>
+                            <p class="card-text">Difficulty level: <%= workout.daysPerWeek %></p>
+                            <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
+                            <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
+                            <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
+                            <p class="card-text">Description: <%= workout.descritpion %></p>                              
+                            <div class="top-card-container">
+                                <a class="show-card-btn btn btn-primary" href="/workout-plans/<%= user._id %>/edit/<%= workout._id %>">Edit your Plan</a>
+                                <a class="show-card-btn btn btn-danger" href="/workout-plans/<%= user._id %>/delete/<%= workout._id %>?_method=DELETE">Delete your Plan</a>
+                            </div>
+    
+                        </div>
+                    </div>
+
+            </div>
+                            
+    </div>
 </div>
 
-
-
 <%- include('../partials/footer') %>
+
