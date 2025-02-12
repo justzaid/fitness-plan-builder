@@ -23,14 +23,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"><%= element.name %></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            <%= element.difficultyLevel %>
-                        </h6>
-                        <p class="card-text">Time per workout: <%= element.duration %></p>
-                        <p class="card-text">Days per week: <%= element.daysPerWeek %></p>
-                        <p class="card-text">Time per workout: <%= element.timePerWorkout %></p>
-                        <p class="card-text">Equipment required: <%= element.equipmentRequired %></p>
-                        <p class="card-text">Description: <%= element.description %></p>
+                        <h6 class="card-subtitle mb-4 text-muted"><%= element.difficultyLevel %></h6>
+                        <p class="card-text mt-1" ><span style="color: #333333;">Workout duration: </span><%= workout.duration %> weeks</p>
+                        <p class="card-text mt-1"><span style="color: #333333;">Days per week: </span><%= element.daysPerWeek %></p>
+                        <p class="card-text mt-1"><span style="color: #333333;">Time per workout: </span><%= element.timePerWorkout %></p>
+                        <p class="card-text mt-1"><span style="color: #333333;">Equipment required: </span><%= element.equipmentRequired %></p>
+                        <p class="card-text mt-1"><span style="color: #333333;">Description: </span><%- element.description ? element.description.replace(/\r\n|\r|\n/g, '<br>') : '' %></p>
                     </div>
                 </div>
             </div>

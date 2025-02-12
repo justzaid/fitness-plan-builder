@@ -45,14 +45,12 @@
                           <div class="card">
                               <div class="card-body">
                                   <h5 class="card-title"><%= workout.name %></h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">
-                                      <%= workout.difficultyLevel %>
-                                  </h6>
-                                  <p class="card-text">Time per workout: <%= workout.duration %></p>
-                                  <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                                  <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                                  <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                                  <p class="card-text">Description: <%= workout.description %></p>
+                                  <h6 class="card-subtitle mb-4 text-muted"><%= workout.difficultyLevel %></h6>
+                                  <p class="card-text mt-1" ><span style="color: #333333;">Workout duration: </span><%= workout.duration %> weeks</p>
+                                  <p class="card-text mt-1"><span style="color: #333333;">Days per week: </span><%= workout.daysPerWeek %> days</p>
+                                  <p class="card-text mt-1"><span style="color: #333333;">Time per workout: </span><%= workout.timePerWorkout %> minutes</p>
+                                  <p class="card-text mt-1"><span style="color: #333333;">Equipment required: </span><%= workout.equipmentRequired %></p>
+                                  <p class="card-text mt-1"><span style="color: #333333;">Description: </span><%- workout.description ? workout.description.replace(/\r\n|\r|\n/g, '<br>') : '' %></p>
                               </div>
                           </div>
                       <% }) %>

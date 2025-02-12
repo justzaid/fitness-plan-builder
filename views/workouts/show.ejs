@@ -7,7 +7,7 @@
                 <div class="section-heading">
                     <h2>Your <em><%= title %> Plan</em></h2>
                     <img src="/assets/line-dec.png" alt="">
-                    <p>Modify your workout.</p>                     
+                    <p>Modify your workout plan.</p>                     
                 </div>
             </div>
         </div>
@@ -21,14 +21,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><%= workout.name %></h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                <%= workout.difficultyLevel %>
-                            </h6>
-                            <p class="card-text">Difficulty level: <%= workout.daysPerWeek %></p>
-                            <p class="card-text">Days per week: <%= workout.daysPerWeek %></p>
-                            <p class="card-text">Time per workout: <%= workout.timePerWorkout %></p>
-                            <p class="card-text">Equipment required: <%= workout.equipmentRequired %></p>
-                            <p class="card-text">Description: <%= workout.description %></p>                              
+                            <h6 class="card-subtitle mb-2 text-muted"><%= workout.difficultyLevel %></h6>
+                            <p class="card-text">><span style="color: #333333;">Days per week: </span><%= workout.daysPerWeek %></p>
+                            <p class="card-text"><span style="color: #333333;">Time per workout: </span><%= workout.timePerWorkout %></p>
+                            <p class="card-text"><span style="color: #333333;">Equipment required: </span><%= workout.equipmentRequired %></p>
+                            <p class="card-text mt-1"><span style="color: #333333;">Description: </span><%- workout.description ? workout.description.replace(/\r\n|\r|\n/g, '<br>') : '' %></p>
                             <div class="top-card-container">
                                 <a class="show-card-btn btn btn-warning" href="/workout-plans/<%= user._id %>/edit/<%= workout._id %>">Edit your Plan</a>
                                 <a class="show-card-btn btn btn-danger" href="/workout-plans/<%= user._id %>/delete/<%= workout._id %>?_method=DELETE">Delete your Plan</a>
