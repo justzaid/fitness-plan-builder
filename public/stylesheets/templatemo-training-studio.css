@@ -707,6 +707,11 @@ trainers
   flex-direction: column;
 }
 
+.top-card-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* 
 ---------------------------------------------
 contact
