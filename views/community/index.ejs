@@ -7,7 +7,11 @@
                 <div class="section-heading">
                     <h2>Community <em>Plans</em></h2>
                     <img src="/assets/line-dec.png" alt="">
-                    <p>Join our community today to browse all of our users workout plans.</p>
+                    <% if (!isLogged) { %>
+                        <p>Join our community today to browse all of our users workout plans.</p>                     
+                        <% } else { %>
+                        <p>Welcome back, see what your community is up to!</p>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -19,23 +23,18 @@
       <% currentUser.forEach(user => { %>
           <% if(!user.workouts.length) return %>
           <section>
-              <div class="user-info">
-                  <h4>
-                      <div class="user-avatar">
-                          <!-- Add a circular element for user avatar image or icon -->
-                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-                              <circle cx="12" cy="12" r="10" fill="#ccc" />
-                              <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" fill="#fff">U</text>
-                          </svg>
-                      </div>
-
-                      <% if (isLogged) { %>
-                          <a href="/community/<%= user._id %>/view"><%= user.username %></a>
-                      <% } else { %>
-                          <%= user.username %>
-                      <% } %>
-                  </h4>
-
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="/assets/features-first-icon.png" alt="User Avatar" class="avatar-image">
+                </div>
+                <h4 class="username">
+                    <% if (isLogged) { %>
+                        <a href="/community/<%= user._id %>/view"><%= user.username %></a>
+                    <% } else { %>
+                        <%= user.username %>
+                    <% } %>
+                </h4>
+            </div>
                   <div class="user-workouts">
                       <% let shuffledWorkouts = user.workouts.sort(() => Math.random() - 0.5);
                           let numRandomWorkouts = 3;

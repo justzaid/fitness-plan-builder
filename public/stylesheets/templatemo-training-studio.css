@@ -332,6 +332,34 @@ header
   height: 40px;
 }
 
+.avatar-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%; /* Make the image circular */
+}
+
+.user-info {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  margin-right: 10px;
+}
+
+.avatar-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  vertical-align: bottom;
+}
+
+.username {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
     padding-left: 12px;
