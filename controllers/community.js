@@ -20,12 +20,12 @@ const home = async (req, res) => {
 const viewUser = async (req, res) => {
     try {
         const currentUser = await User.findById(req.params.userId)
-        const workout = currentUser.workouts
+        const workouts = currentUser.workouts
         const user = await User.findById(req.session.user)
         res.render('community/show.ejs', {
             title: 'User Page',
             currentUser,
-            workout,
+            workouts,
             user,
         })
     } catch (error) {
