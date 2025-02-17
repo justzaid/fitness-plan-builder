@@ -1,5 +1,5 @@
 const home = (req, res) => {
-    res.render('index.ejs', {title: 'My App'})
+    res.render('index.ejs', {title: 'FitFusion Application'})
 }
 
 module.exports = {

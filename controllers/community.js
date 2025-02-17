@@ -23,7 +23,7 @@ const viewUser = async (req, res) => {
         const workouts = currentUser.workouts
         const user = await User.findById(req.session.user)
         res.render('community/show.ejs', {
-            title: 'User Page',
+            title: 'User Workouts',
             currentUser,
             workouts,
             user,
