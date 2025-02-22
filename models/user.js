@@ -32,6 +32,7 @@ const workoutSchema = new mongoose.Schema({
 
 })
 
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,

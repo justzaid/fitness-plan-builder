@@ -15,53 +15,45 @@
 </section>
 
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex">
         <div class="contact-form col-lg-6 col-md-6 col-xs-12">
             <form id="contact" action="/workout-plans/<%= user._id %>" method="POST">
-                <div class="row">
+                <div class="newplan" style="display: flex;">
                     <div class="col-lg-12">
-                        <label for="name">Plan name: </label>
+                        <label for="name">Workout Plan name: <p><small>Give your workout a title</small></p></label>
                         <input type="text" name="name">
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
-                        <label for="difficultyLevel">Difficulty Level: </label>
+                        <label for="difficultyLevel">Difficulty Level: <p><small>Beginner - Intermediate - Expert</small></p></label>
                         <input type="text" name="difficultyLevel">
                     </div>
                 </div>
-                <div class="row">
+                <div class="newplan" style="display: flex;">
                     <div class="col-lg-12">
-                        <label for="duration">Duration in weeks: </label>
+                        <label for="duration">Duration: <p><small>Amount of weeks to complete</small></p></label>
                         <input type="number" name="duration">
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
-                        <label for="daysPerWeek">Days per week: </label>
+                        <label for="daysPerWeek">Days per week: <p><small>Active workout days per week</small></p></label>
                         <input type="number" name="daysPerWeek">
                     </div>
                 </div>
-                <div class="row">
+                <div class="newplan" style="display: flex;">
                     <div class="col-lg-12">
-                        <label for="timePerWorkout">Time per workout: </label>
+                        <label for="timePerWorkout">Time per workout: <p><small>Total time in Minutes</small></p></label>
                         <input type="number" name="timePerWorkout">
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
-                        <label for="equipmentRequired">Equipment Required: </label>
+                        <label for="equipmentRequired">Equipment Required: <p><small>Dumbbells, Pull-up bar, etc.</small></p></label>
                         <input type="text" name="equipmentRequired">
                     </div>
                 </div>
-                <div class="row">
+                <div>
                     <div class="col-lg-12">
                         <label for="description">Description: </label>
                         <p><small>Add line breaks to start a new paragraph.</small></p>
                         <textarea type="text" name="description"></textarea>
                     </div>
-                </div>                
-                <div class="row">
                     <div class="col-lg-12">
                         <button type="submit" class="btn btn-primary">Create</button>
                     </div>

@@ -749,7 +749,7 @@ contact
   width: 100%;
   height: 40px;
   outline: none;
-  line-height: 40px;
+  line-height: 35px;
   padding: 0px 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -758,8 +758,9 @@ contact
 }
 
 .contact-form textarea {
-  height: 150px;
-  resize: none;
+  height: 200px;
+  max-width: 207%;
+  resize: both;
 }
 
 .contact-form ::-webkit-input-placeholder { /* Edge */
