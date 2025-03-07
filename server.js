@@ -52,7 +52,8 @@ app.use(passUserToView)
 app.get('/', pagesCtrl.home)
 
 // Route handler for community page
-app.get('/community', communityCtrl.home)
+// app.get('/community', communityCtrl.home)
+app.get('/community', communityCtrl.allowedUsers)
 app.get('/community/:userId/view', communityCtrl.viewUser)
 
 // Route handlers for authentication
